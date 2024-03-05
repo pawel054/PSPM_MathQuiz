@@ -48,5 +48,12 @@ namespace PSPM_MathQuiz
             }
         }
 
+        private void PlayAgainButton(object sender, EventArgs e)
+        {            
+            finishGameView.IsVisible = false;
+            startGameView.IsVisible = true;
+            GenerateQuestions();
+        }
+
     }
 }
