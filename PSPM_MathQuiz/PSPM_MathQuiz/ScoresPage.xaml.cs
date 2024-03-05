@@ -28,7 +28,7 @@ namespace PSPM_MathQuiz
 
             for(int i = 0; i< groupedScores.Count; i++)
             {
-                groupedScores[i] = i + 1;
+                groupedScores[i].RankingPosition = i + 1;
             }
 
             scoresCollectionView.ItemsSource = groupedScores;
