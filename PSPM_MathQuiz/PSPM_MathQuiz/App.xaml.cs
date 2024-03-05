@@ -10,7 +10,7 @@ namespace PSPM_MathQuiz
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new ScoresPage();
         }
 
         protected override void OnStart()

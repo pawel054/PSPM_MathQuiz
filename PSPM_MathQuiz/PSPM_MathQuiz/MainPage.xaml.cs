@@ -14,5 +14,26 @@ namespace PSPM_MathQuiz
         {
             InitializeComponent();
         }
+
+        private void ViewScoresClicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StartQuiz(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SubmitAnswer(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void PlayAgainButton(object sender, EventArgs e)
+        {
+
+        }
     }
 }
