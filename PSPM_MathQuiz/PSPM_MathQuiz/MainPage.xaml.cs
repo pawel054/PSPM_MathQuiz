@@ -101,6 +101,34 @@ namespace PSPM_MathQuiz
             await Task.Delay(2500);
             ShowNextQuestion();
         }
+        
+         private void FinishQuiz()
+        {
+            double totalTime = times.Sum();
+            SaveResults(userNameEntry.Text, totalTime, currentScore);
+            DisplayFinalResults(totalTime);
+        }
+
+        private async void ViewScoresClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ScoresPage());
+        }
+
+        private void DisplayFinalResults()
+        {
+            finishGameView.IsVisible = true;
+            gameView.IsVisible = false;
+            questionLabel.IsVisible = false;
+            answerEntry.IsVisible = false;
+            submitAnswerButton.IsVisible = false;
+            resultPoints.Text = currentScore.ToString();
+            resultTime.Text = totalTime.ToString("F2");
+        }
+
+        private void SaveResults(string userName, double totaltime, int score)
+        {
+            App.Database.SaveResultsAsync(userName, totaltime, score);
+        }
 
     }
 }
