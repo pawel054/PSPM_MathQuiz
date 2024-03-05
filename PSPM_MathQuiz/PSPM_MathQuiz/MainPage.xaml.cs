@@ -74,5 +74,33 @@ namespace PSPM_MathQuiz
             }
         }
 
+        private async void SubmitAnswer(object sender, EventArgs e)
+        {
+            submitAnserButton.IsEnabled = false;
+            stopwatch.Stop();
+            int correctAnswer = questions[currentQuestionIndex] * 2;
+            if(int.TryParse(answerEntry.Text, out int userAnswer) && userAnswer == correctAnswer)
+            {
+                currentScore++;
+                feedbackLabel.Text = "Poprawna odpowiedź!";
+                feedbackFrame.BorderColor = Color.Green;
+                feedbackLabel.TextColor = Color.Green;
+            }
+            else
+            {
+                feedbackLabel.Text = $"Niestety to jest zła odpowiedź, poprawna odpowiedź to {correctAnswer}";
+                feedbackFrame.BorderColor = Color.Green;
+                feedbackLabel.TextColor = Color.Green;
+            }
+            feedbackLabel.IsVisible = true;
+            feedbackFrame.IsVisible = true;
+            times.Add(stopwatch.Elapsed.TotalSeconds);
+            currentQuestionIndex++;
+            answerEntry.Text = string.Empty;
+             
+            await Task.Delay(2500);
+            ShowNextQuestion();
+        }
+
     }
 }
