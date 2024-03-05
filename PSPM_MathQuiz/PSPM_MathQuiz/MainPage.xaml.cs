@@ -20,6 +20,10 @@ namespace PSPM_MathQuiz
 
         }
 
+        private async void ViewScoresClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ScoresPage());
+        }
 
         private void DisplayFinalResults()
         {
@@ -32,9 +36,9 @@ namespace PSPM_MathQuiz
             resultTime.Text = totalTime.ToString("F2");
         }
 
-        private void SaveResults()
+        private void SaveResults(string userName, double totaltime, int score)
         {
-
+            App.Database.SaveResultsAsync(userName, totaltime, score);
         }
     }
 }
