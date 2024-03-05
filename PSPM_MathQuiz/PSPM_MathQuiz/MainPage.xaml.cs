@@ -57,7 +57,7 @@ namespace PSPM_MathQuiz
 
         private void ShowNextQuestion()
         {
-            submitAnserButton.IsEnabled = true;
+            submitAnswerButton.IsEnabled = true;
             if(currentQuestionIndex  < questions.Count)
             {
                 questionLabel.IsVisible = true;
@@ -76,7 +76,7 @@ namespace PSPM_MathQuiz
 
         private async void SubmitAnswer(object sender, EventArgs e)
         {
-            submitAnserButton.IsEnabled = false;
+            submitAnswerButton.IsEnabled = false;
             stopwatch.Stop();
             int correctAnswer = questions[currentQuestionIndex] * 2;
             if(int.TryParse(answerEntry.Text, out int userAnswer) && userAnswer == correctAnswer)
