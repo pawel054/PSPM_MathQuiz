@@ -20,6 +20,87 @@ namespace PSPM_MathQuiz
         public MainPage()
         {
             InitializeComponent();
+
+            GenerateQuestions();
         }
+
+        private void GenerateQuestions()
+        {
+            Random random = new Random();
+            questions = Enumerable.Range(0,5).Select(_=> random.Next(1,1001)).ToList();
+        }
+
+        private void StartQuiz(object sender, EventArgs e)
+        {
+            if(string.IsNullOrEmpty(userNameEntry.Text))
+            {
+                DisplayAlert("Alert" , "pole nie może być puste!" , "OK");
+            }
+            else
+            {
+                currentScore = 0;
+                currentQuestionIndex = 0;
+                times.Clear();
+                startGameView.IsVisible = false;
+                finishGameView.IsVisible = false;
+                gameView.IsVisible = true;
+                ShowNextQuestion();
+            }
+        }
+
+        private void PlayAgainButton(object sender, EventArgs e)
+        {            
+            finishGameView.IsVisible = false;
+            startGameView.IsVisible = true;
+            GenerateQuestions();
+        }
+
+        private void ShowNextQuestion()
+        {
+            submitAnserButton.IsEnabled = true;
+            if(currentQuestionIndex  < questions.Count)
+            {
+                questionLabel.IsVisible = true;
+                questionLabel.Text = $"Podwojona wartość {questions[currentQuestionIndex]} to:";
+                answerEntry.IsVisible = true;
+                submitAnswerButton.IsVisible = true;
+                feedbackLabel.IsVisible = false;
+                feedbackFrame.IsVisible = false;
+                stopwatch.Restart();
+            }
+            else
+            {
+                FinishQuiz();
+            }
+        }
+
+        private async void SubmitAnswer(object sender, EventArgs e)
+        {
+            submitAnserButton.IsEnabled = false;
+            stopwatch.Stop();
+            int correctAnswer = questions[currentQuestionIndex] * 2;
+            if(int.TryParse(answerEntry.Text, out int userAnswer) && userAnswer == correctAnswer)
+            {
+                currentScore++;
+                feedbackLabel.Text = "Poprawna odpowiedź!";
+                feedbackFrame.BorderColor = Color.Green;
+                feedbackLabel.TextColor = Color.Green;
+            }
+            else
+            {
+                feedbackLabel.Text = $"Niestety to jest zła odpowiedź, poprawna odpowiedź to {correctAnswer}";
+                feedbackFrame.BorderColor = Color.Green;
+                feedbackLabel.TextColor = Color.Green;
+            }
+            feedbackLabel.IsVisible = true;
+            feedbackFrame.IsVisible = true;
+            times.Add(stopwatch.Elapsed.TotalSeconds);
+            currentQuestionIndex++;
+            answerEntry.Text = string.Empty;
+             
+            await Task.Delay(2500);
+            ShowNextQuestion();
+        }
+
     }
 }
