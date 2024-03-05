@@ -55,5 +55,24 @@ namespace PSPM_MathQuiz
             GenerateQuestions();
         }
 
+        private void ShowNextQuestion()
+        {
+            submitAnserButton.IsEnabled = true;
+            if(currentQuestionIndex  < questions.Count)
+            {
+                questionLabel.IsVisible = true;
+                questionLabel.Text = $"Podwojona wartość {questions[currentQuestionIndex]} to:";
+                answerEntry.IsVisible = true;
+                submitAnswerButton.IsVisible = true;
+                feedbackLabel.IsVisible = false;
+                feedbackFrame.IsVisible = false;
+                stopwatch.Restart();
+            }
+            else
+            {
+                FinishQuiz();
+            }
+        }
+
     }
 }
