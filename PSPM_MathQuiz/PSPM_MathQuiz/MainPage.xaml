@@ -12,6 +12,18 @@
             <Button x:Name="startGameButton" Text="Rozpocznij grę" BackgroundColor="LightSkyBlue" TextColor="White" TextTransform="None" WidthRequest="220" HorizontalOptions="Center" CornerRadius="20"/>
             <Button x:Name="playAgainButton" Text="Ranking" BackgroundColor="LightSkyBlue" TextColor="White" TextTransform="None" WidthRequest="150" FontSize="17" HorizontalOptions="Center" CornerRadius="20"/>
         </StackLayout>
+        <StackLayout x:Name="gameView" HorizontalOptions="Center" Margin="0,60,0,0" Spacing="20" IsVisible="False">
+            <Frame BackgroundColor="#5785ca" CornerRadius="25" WidthRequest="280" HorizontalOptions="Center">
+                <Label x:Name="questionLabel" Text="question" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" TextColor="White" FontSize="20" IsVisible="false"/>
+            </Frame>
+            <Frame BackgroundColor="White" CornerRadius="20" WidthRequest="150" HorizontalOptions="Center" Padding="10,0,10,0">
+                <Entry x:Name="answerEntry" Placeholder="Odpowiedź" HorizontalTextAlignment="Center" IsVisible="false"/>
+            </Frame>
+            <Frame x:Name="feedbackFrame" BackgroundColor="White" CornerRadius="20" HorizontalOptions="Center" WidthRequest="150" IsVisible="false">
+                <Label x:Name="feedbackLabel" Text="txt" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="false"/>
+            </Frame>
+            <Button x:Name="submitAnswerButton" Text="Zatwiedź odpowiedź" BackgroundColor="#3578de" TextColor="White" CornerRadius="20" HorizontalOptions="Center" WidthRequest="220" TextTransform="None" FontSize="17" Margin="0,10,0,0" IsVisible="false"/>
+        </StackLayout>
     </StackLayout>
 
 </ContentPage>
