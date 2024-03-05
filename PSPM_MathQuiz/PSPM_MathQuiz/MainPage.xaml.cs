@@ -114,7 +114,7 @@ namespace PSPM_MathQuiz
             await Navigation.PushAsync(new ScoresPage());
         }
 
-        private void DisplayFinalResults()
+        private void DisplayFinalResults(double totalTime)
         {
             finishGameView.IsVisible = true;
             gameView.IsVisible = false;
