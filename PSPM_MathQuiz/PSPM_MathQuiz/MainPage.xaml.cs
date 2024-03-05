@@ -15,23 +15,24 @@ namespace PSPM_MathQuiz
             InitializeComponent();
         }
 
-        private void ViewScoresClicked(object sender, EventArgs e)
-        {
-
-        }
-
-        private void StartQuiz(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SubmitAnswer(object sender, EventArgs e)
+        private void FinishQuiz()
         {
 
         }
 
 
-        private void PlayAgainButton(object sender, EventArgs e)
+        private void DisplayFinalResults()
+        {
+            finishGameView.IsVisible = true;
+            gameView.IsVisible = false;
+            questionLabel.IsVisible = false;
+            answerEntry.IsVisible = false;
+            submitAnswerButton.IsVisible = false;
+            resultPoints.Text = currentScore.ToString();
+            resultTime.Text = totalTime.ToString("F2");
+        }
+
+        private void SaveResults()
         {
 
         }
