@@ -5,12 +5,12 @@
              Title="MathQuiz">
 
     <StackLayout BackgroundColor="LightBlue">
-        <StackLayout x:Name="startGameView" IsVisible="false">
-            <Frame BackgroundColor="White" WidthRequest="220" HorizontalOptions="Center" CornerRadius="25" Padding="10" Margin="0,50,0,20">
-                <Entry x:Name="txtUserName" Placeholder="Nick" HorizontalTextAlignment="Center" VerticalTextAlignment="Center"/>
+        <StackLayout x:Name="startGameView" HorizontalOptions="Center">
+            <Frame BackgroundColor="White" CornerRadius="20" Padding="10,0,10,0" WidthRequest="250">
+                <Entry x:Name="userNameEntry" Placeholder="Nick" HorizontalTextAlignment="Center"/>
             </Frame>
-            <Button x:Name="startGameButton" Text="Rozpocznij grę" BackgroundColor="LightSkyBlue" TextColor="White" TextTransform="None" WidthRequest="220" HorizontalOptions="Center" CornerRadius="20"/>
-            <Button x:Name="playAgainButton" Text="Ranking" BackgroundColor="LightSkyBlue" TextColor="White" TextTransform="None" WidthRequest="150" FontSize="17" HorizontalOptions="Center" CornerRadius="20"/>
+            <Button x:Name="startButton" Text="Rozpocznij quiz" BackgroundColor="#3578de" TextColor="White" TextTransform="None" CornerRadius="20" FontSize="18" WidthRequest="200" HorizontalOptions="Center" Margin="0,20,0,10" Clicked="StartQuiz"/>
+            <Button x:Name="viewScoresButton" Text="Ranking" BackgroundColor="#3578de" TextColor="White" TextTransform="None" CornerRadius="20" FontSize="18" WidthRequest="150" HorizontalOptions="Center" Clicked="ViewScoresClicked"/>
         </StackLayout>
         <StackLayout x:Name="gameView" HorizontalOptions="Center" Margin="0,60,0,0" Spacing="20" IsVisible="False">
             <Frame BackgroundColor="#5785ca" CornerRadius="25" WidthRequest="280" HorizontalOptions="Center">
@@ -22,7 +22,23 @@
             <Frame x:Name="feedbackFrame" BackgroundColor="White" CornerRadius="20" HorizontalOptions="Center" WidthRequest="150" IsVisible="false">
                 <Label x:Name="feedbackLabel" Text="txt" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" IsVisible="false"/>
             </Frame>
-            <Button x:Name="submitAnswerButton" Text="Zatwiedź odpowiedź" BackgroundColor="#3578de" TextColor="White" CornerRadius="20" HorizontalOptions="Center" WidthRequest="220" TextTransform="None" FontSize="17" Margin="0,10,0,0" IsVisible="false"/>
+            <Button x:Name="submitAnswerButton" Text="Zatwiedź odpowiedź" BackgroundColor="#3578de" TextColor="White" CornerRadius="20" HorizontalOptions="Center" WidthRequest="220" TextTransform="None" FontSize="17" Margin="0,10,0,0" IsVisible="false" Clicked="SubmitAnswer"/>
+        </StackLayout>
+        <StackLayout x:Name="finishGameView" IsVisible="false">
+            <Label Text="Koniec quizu" TextColor="White" HorizontalOptions="Center" FontSize="30" FontAttributes="Bold" Padding="30"/>
+            <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Center" WidthRequest="170" Padding="10">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Punkty: " FontSize="20"/>
+                    <Label x:Name="resultPoints" Text="1 " FontSize="20"/>
+                </StackLayout>
+            </Frame>
+            <Frame BackgroundColor="White" CornerRadius="15" HorizontalOptions="Center" WidthRequest="170" Padding="10" Margin="0,10,0,40">
+                <StackLayout Orientation="Horizontal" HorizontalOptions="Center">
+                    <Label Text="Czas: " FontSize="20"/>
+                    <Label x:Name="resultTime" Text="1s" FontSize="20"/>
+                </StackLayout>
+            </Frame>
+            <Button x:Name="playAgainButton" Text="Zagraj ponownie" BackgroundColor="#3578de" TextColor="White" CornerRadius="20" TextTransform="None" HorizontalOptions="Center" WidthRequest="220" Clicked="PlayAgainButton"/>
         </StackLayout>
     </StackLayout>
 
