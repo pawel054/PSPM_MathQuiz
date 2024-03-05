@@ -17,7 +17,9 @@ namespace PSPM_MathQuiz
 
         private void FinishQuiz()
         {
-
+            double totalTime = times.Sum();
+            SaveResults(userNameEntry.Text, totalTime, currentScore);
+            DisplayFinalResults(totalTime);
         }
 
         private async void ViewScoresClicked(object sender, EventArgs e)
