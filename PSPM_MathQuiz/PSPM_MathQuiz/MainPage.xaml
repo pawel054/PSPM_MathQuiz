@@ -6,7 +6,7 @@
 
     <StackLayout BackgroundColor="LightBlue">
         <StackLayout x:Name="startGameView" HorizontalOptions="Center">
-            <Frame BackgroundColor="White" CornerRadius="20" Padding="10,0,10,0" WidthRequest="250">
+            <Frame BackgroundColor="White" CornerRadius="20" Padding="10,0,10,0" WidthRequest="250" Margin="0,50,0,0">
                 <Entry x:Name="userNameEntry" Placeholder="Nick" HorizontalTextAlignment="Center"/>
             </Frame>
             <Button x:Name="startButton" Text="Rozpocznij quiz" BackgroundColor="#3578de" TextColor="White" TextTransform="None" CornerRadius="20" FontSize="18" WidthRequest="200" HorizontalOptions="Center" Margin="0,20,0,10" Clicked="StartQuiz"/>

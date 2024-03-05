@@ -89,8 +89,8 @@ namespace PSPM_MathQuiz
             else
             {
                 feedbackLabel.Text = $"Niestety to jest zła odpowiedź, poprawna odpowiedź to {correctAnswer}";
-                feedbackFrame.BorderColor = Color.Green;
-                feedbackLabel.TextColor = Color.Green;
+                feedbackFrame.BorderColor = Color.Red;
+                feedbackLabel.TextColor = Color.Red;
             }
             feedbackLabel.IsVisible = true;
             feedbackFrame.IsVisible = true;
