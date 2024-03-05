@@ -127,7 +127,7 @@ namespace PSPM_MathQuiz
 
         private void SaveResults(string userName, double totaltime, int score)
         {
-            App.Database.SaveResultAsync(userName, totaltime, score);
+            App.Database.SaveResultAsync(new UserResult(userName, totaltime, score));
         }
 
     }
